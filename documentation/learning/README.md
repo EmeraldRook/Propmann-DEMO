@@ -7,16 +7,11 @@ Auto-maintained by Claude — updated with each commit.
 
 ## Topics
 
-*Topics will appear here as the project grows and decisions are made.*
-
-<!-- Example of what this will look like once populated:
 | File | What's inside |
 |------|--------------|
-| [architecture.md](./architecture.md) | System structure, routing, layouts |
-| [patterns.md](./patterns.md) | Code conventions, recurring patterns |
+| [architecture.md](./architecture.md) | System structure, routing, layouts, data scoping |
 | [tech-choices.md](./tech-choices.md) | Why we chose our libraries and tools |
-| [gotchas.md](./gotchas.md) | Pitfalls and non-obvious behavior |
--->
+| [gotchas.md](./gotchas.md) | Pitfalls, scope traps, non-obvious behavior |
 
 ## How to Use
 - **New to the project?** Read top-to-bottom for a quick overview
