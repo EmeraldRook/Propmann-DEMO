@@ -4,19 +4,16 @@ This folder contains all project documentation. Each subfolder has its own READM
 
 ## Folders
 
-<!-- Uncomment and add as you create folders:
-
 ### [Requirements](./requirements/)
-Functional and non-functional requirements, user stories, acceptance criteria.
+Functional and non-functional requirements, roles, and feature specs.
+
+<!-- Uncomment as you create folders:
 
 ### [UI Design](./ui-design/)
 Wireframes, mockups, component specs, design system notes.
 
 ### [Architecture](./architecture/)
 System architecture, data models, API design, infrastructure decisions.
-
-### [Guides](./guides/)
-Development guides, onboarding, workflows, conventions.
 
 -->
 

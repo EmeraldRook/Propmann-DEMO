@@ -4,8 +4,8 @@
 All project documentation lives in `documentation/`. Always check for relevant specs before implementing features.
 
 - Documentation index: @documentation/README.md
-<!-- Add more as folders are created, e.g.:
 - Requirements: @documentation/requirements/README.md
+<!-- Add more as folders are created, e.g.:
 - UI Design: @documentation/ui-design/README.md
 - Architecture: @documentation/architecture/README.md
 -->
