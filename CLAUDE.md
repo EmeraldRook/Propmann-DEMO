@@ -10,12 +10,8 @@ All project documentation lives in `documentation/`. Always check for relevant s
 - Architecture: @documentation/architecture/README.md
 -->
 
-## Tech Stack
-<!-- Fill in as the project takes shape, e.g.:
-- Language: TypeScript
-- Framework: Next.js
-- Database: PostgreSQL
--->
+## Technical References
+When you need up-to-date documentation for libraries, frameworks, or tools (e.g. Next.js APIs, Ant Design components, TypeScript features), use the **Context7 MCP** (`resolve-library-id` then `query-docs`) rather than relying on training data. This ensures answers reflect the latest APIs and best practices.
 
 ## Commands
 <!-- Fill in build/test/lint commands, e.g.:
