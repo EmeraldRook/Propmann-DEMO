@@ -12,7 +12,7 @@ Propmann is a SaaS property management platform. Property managers subscribe to 
 | Interface            | Primary User | Platform     | Priority |
 |----------------------|-------------|--------------|----------|
 | Management Dashboard | Managers    | Web          | Phase 1  |
-| Resident Portal      | Residents   | Mobile-first | Phase 1  |
+| Resident Portal      | Residents   | Mobile-first (PWA) | Phase 1  |
 | Admin Console        | Admin       | Web          | Phase 2  |
 
 ## Demo Scope
