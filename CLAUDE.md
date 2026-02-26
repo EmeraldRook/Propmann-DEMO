@@ -5,6 +5,7 @@ All project documentation lives in `documentation/`. Always check for relevant s
 
 - Documentation index: @documentation/README.md
 - Requirements: @documentation/requirements/README.md
+- Learning: @documentation/learning/README.md
 <!-- Add more as folders are created, e.g.:
 - UI Design: @documentation/ui-design/README.md
 - Architecture: @documentation/architecture/README.md
@@ -23,6 +24,9 @@ When you need up-to-date documentation for libraries, frameworks, or tools (e.g.
 
 ## Code Style
 <!-- Add project-specific conventions here -->
+
+## Learning Documentation (Auto-updated)
+Before making any commit, check if the staged changes warrant updates to `documentation/learning/`. Use the `learning-docs` skill process to analyze changes and capture architectural decisions, patterns, and developer knowledge. Include any learning doc updates in the same commit.
 
 ## Git & PRs
 <!-- Add branch naming, commit conventions, PR process here -->

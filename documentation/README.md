@@ -7,6 +7,9 @@ This folder contains all project documentation. Each subfolder has its own READM
 ### [Requirements](./requirements/)
 Functional and non-functional requirements, roles, and feature specs.
 
+### [Learning](./learning/)
+Auto-maintained knowledge base — architectural decisions, patterns, gotchas, and tech rationale. Updated with each commit.
+
 <!-- Uncomment as you create folders:
 
 ### [UI Design](./ui-design/)
