@@ -19,6 +19,7 @@ desktop.ini
 *.swo
 
 # Build
+.next/
 dist/
 build/
 out/

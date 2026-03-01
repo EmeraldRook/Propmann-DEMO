@@ -1,0 +1,28 @@
+import type { MaintenanceRequest } from '@/types';
+
+export const maintenanceRequests: MaintenanceRequest[] = [
+  // ── Sri Angkasa Residences ──
+  { id: 'MR001', propertyId: 'sri-angkasa', residentId: 'R001', residentName: 'Ahmad Razali bin Mohd Yusof', unit: '12B', category: 'aircon', title: 'Aircon not cooling properly', description: 'The living room aircon unit is blowing warm air. Tried resetting but no change.', status: 'in_progress', priority: 'high', createdAt: '2026-02-25T09:30:00', updatedAt: '2026-02-26T14:00:00', assignedTo: 'CoolTech Aircon Services' },
+  { id: 'MR002', propertyId: 'sri-angkasa', residentId: 'R002', residentName: 'Siti Nurhaliza binti Abdullah', unit: '08A', category: 'plumbing', title: 'Kitchen sink leaking', description: 'Water dripping from under the kitchen sink pipe joint.', status: 'new', priority: 'medium', createdAt: '2026-02-27T11:15:00', updatedAt: '2026-02-27T11:15:00' },
+  { id: 'MR003', propertyId: 'sri-angkasa', residentId: 'R003', residentName: 'Tan Wei Ming', unit: '15C', category: 'electrical', title: 'Faulty power socket in bedroom', description: 'The power socket near the bed keeps tripping the circuit breaker.', status: 'completed', priority: 'high', createdAt: '2026-02-20T08:00:00', updatedAt: '2026-02-23T16:30:00', assignedTo: 'Syarikat Elektrik Jaya' },
+  { id: 'MR004', propertyId: 'sri-angkasa', residentId: 'R004', residentName: 'Priya a/p Subramaniam', unit: '03D', category: 'pest_control', title: 'Cockroach infestation in kitchen', description: 'Seeing large cockroaches in kitchen area despite keeping it clean. Need professional pest treatment.', status: 'in_progress', priority: 'medium', createdAt: '2026-02-24T10:00:00', updatedAt: '2026-02-25T09:00:00', assignedTo: 'Rentokil Malaysia' },
+  { id: 'MR005', propertyId: 'sri-angkasa', residentId: 'R005', residentName: 'Muhammad Faizal bin Hassan', unit: '10B', category: 'general', title: 'Front door lock jamming', description: 'The front door digital lock is jamming intermittently. Battery replaced but issue persists.', status: 'new', priority: 'high', createdAt: '2026-02-28T07:45:00', updatedAt: '2026-02-28T07:45:00' },
+  { id: 'MR006', propertyId: 'sri-angkasa', residentId: 'R006', residentName: 'Lim Siew Ling', unit: '06A', category: 'plumbing', title: 'Bathroom floor drain clogged', description: 'Water pooling in bathroom during showers. Drain seems blocked.', status: 'closed', priority: 'low', createdAt: '2026-02-15T14:20:00', updatedAt: '2026-02-18T10:00:00', assignedTo: 'Ali Plumbing Works' },
+  { id: 'MR007', propertyId: 'sri-angkasa', residentId: 'R007', residentName: 'Rajesh a/l Krishnan', unit: '11C', category: 'appliance', title: 'Water heater not working', description: 'Electric water heater produces no hot water. No error light showing.', status: 'in_progress', priority: 'medium', createdAt: '2026-02-26T16:00:00', updatedAt: '2026-02-27T09:30:00', assignedTo: 'HomeFix Solutions' },
+
+  // ── The Verdana @ Mont Kiara ──
+  { id: 'MR101', propertyId: 'verdana-mk', residentId: 'R101', residentName: 'Datuk Azman bin Mokhtar', unit: '22A', category: 'aircon', title: 'Aircon compressor noise', description: 'Outdoor compressor unit making loud rattling noise, especially at night.', status: 'in_progress', priority: 'urgent', createdAt: '2026-02-26T20:00:00', updatedAt: '2026-02-27T08:00:00', assignedTo: 'Daikin Service Centre' },
+  { id: 'MR102', propertyId: 'verdana-mk', residentId: 'R102', residentName: 'Jennifer Chua Mei Ling', unit: '18B', category: 'structural', title: 'Ceiling water stain expanding', description: 'Water stain on bedroom ceiling getting larger after recent rain. Possible roof leak.', status: 'new', priority: 'high', createdAt: '2026-02-28T06:30:00', updatedAt: '2026-02-28T06:30:00' },
+  { id: 'MR103', propertyId: 'verdana-mk', residentId: 'R103', residentName: 'Ganesh a/l Muthu', unit: '15C', category: 'electrical', title: 'Dimmer switch malfunction', description: 'Living room dimmer switch stuck at full brightness, cannot adjust.', status: 'completed', priority: 'low', createdAt: '2026-02-19T12:00:00', updatedAt: '2026-02-21T15:00:00', assignedTo: 'ProElectric Sdn Bhd' },
+  { id: 'MR104', propertyId: 'verdana-mk', residentId: 'R104', residentName: 'Nurul Ain binti Kamaruddin', unit: '20A', category: 'plumbing', title: 'Low water pressure in shower', description: 'Shower water pressure has dropped significantly in the past week.', status: 'new', priority: 'medium', createdAt: '2026-02-27T18:00:00', updatedAt: '2026-02-27T18:00:00' },
+  { id: 'MR105', propertyId: 'verdana-mk', residentId: 'R105', residentName: 'Ong Jia Hao', unit: '12B', category: 'pest_control', title: 'Ant trail from balcony', description: 'Persistent ant colony trail coming from balcony into kitchen area.', status: 'closed', priority: 'low', createdAt: '2026-02-10T09:00:00', updatedAt: '2026-02-14T11:00:00', assignedTo: 'Rentokil Malaysia' },
+  { id: 'MR106', propertyId: 'verdana-mk', residentId: 'R106', residentName: 'Kavitha a/p Rajan', unit: '25A', category: 'general', title: 'Balcony glass panel crack', description: 'Small crack noticed on balcony glass panel. Safety concern at high floor.', status: 'in_progress', priority: 'urgent', createdAt: '2026-02-25T15:00:00', updatedAt: '2026-02-26T10:00:00', assignedTo: 'GlassPro Solutions' },
+];
+
+export function getMaintenanceByProperty(propertyId: string): MaintenanceRequest[] {
+  return maintenanceRequests.filter((r) => r.propertyId === propertyId);
+}
+
+export function getMaintenanceByResident(residentId: string): MaintenanceRequest[] {
+  return maintenanceRequests.filter((r) => r.residentId === residentId);
+}
