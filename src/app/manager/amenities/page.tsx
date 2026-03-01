@@ -4,11 +4,16 @@ import { Card, Row, Col, Tag, Typography, Table, Badge, Button, Space } from 'an
 import { PlusOutlined, CalendarOutlined, CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
 import { amenities, bookings } from '@/data/amenities';
+import { useProperty } from '@/contexts/PropertyContext';
 import { Booking } from '@/types';
 
 const { Text, Title } = Typography;
 
 export default function AmenitiesPage() {
+  const { selectedProperty } = useProperty();
+  const propertyAmenities = amenities.filter((a) => a.propertyId === selectedProperty);
+  const propertyAmenityIds = new Set(propertyAmenities.map((a) => a.id));
+  const propertyBookings = bookings.filter((b) => propertyAmenityIds.has(b.amenityId));
   const bookingColumns: ColumnsType<Booking> = [
     {
       title: 'Amenity',
@@ -68,7 +73,7 @@ export default function AmenitiesPage() {
       </div>
 
       <Row gutter={[16, 16]} style={{ marginBottom: 32 }}>
-        {amenities.map((am) => (
+        {propertyAmenities.map((am) => (
           <Col xs={24} sm={12} lg={8} xl={6} key={am.id}>
             <Card hoverable>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: 12 }}>
@@ -105,7 +110,7 @@ export default function AmenitiesPage() {
       <Card title="Upcoming Bookings">
         <Table
           columns={bookingColumns}
-          dataSource={bookings.filter((b) => b.status === 'confirmed' && new Date(b.date) >= new Date('2026-02-28'))}
+          dataSource={propertyBookings.filter((b) => b.status === 'confirmed' && new Date(b.date) >= new Date('2026-02-28'))}
           rowKey="id"
           pagination={false}
         />

@@ -5,6 +5,7 @@ import { Table, Card, Tag, Select, Space, Input, Button, Badge, Typography, Avat
 import { SearchOutlined, PlusOutlined, FilterOutlined } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
 import { maintenanceRequests } from '@/data/maintenance';
+import { useProperty } from '@/contexts/PropertyContext';
 import { MaintenanceRequest } from '@/types';
 
 const { Text, Title } = Typography;
@@ -32,12 +33,14 @@ const categoryLabels: Record<string, string> = {
 };
 
 export default function MaintenancePage() {
+  const { selectedProperty } = useProperty();
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [priorityFilter, setPriorityFilter] = useState<string>('all');
   const [searchText, setSearchText] = useState('');
   const [selectedRequest, setSelectedRequest] = useState<MaintenanceRequest | null>(null);
 
-  const filtered = maintenanceRequests.filter((r) => {
+  const propertyRequests = maintenanceRequests.filter((r) => r.propertyId === selectedProperty);
+  const filtered = propertyRequests.filter((r) => {
     if (statusFilter !== 'all' && r.status !== statusFilter) return false;
     if (priorityFilter !== 'all' && r.priority !== priorityFilter) return false;
     if (searchText && !r.title.toLowerCase().includes(searchText.toLowerCase()) && !r.residentName.toLowerCase().includes(searchText.toLowerCase())) return false;
@@ -117,11 +120,11 @@ export default function MaintenancePage() {
   ];
 
   const statusCounts = {
-    all: maintenanceRequests.length,
-    new: maintenanceRequests.filter((r) => r.status === 'new').length,
-    in_progress: maintenanceRequests.filter((r) => r.status === 'in_progress').length,
-    completed: maintenanceRequests.filter((r) => r.status === 'completed').length,
-    closed: maintenanceRequests.filter((r) => r.status === 'closed').length,
+    all: propertyRequests.length,
+    new: propertyRequests.filter((r) => r.status === 'new').length,
+    in_progress: propertyRequests.filter((r) => r.status === 'in_progress').length,
+    completed: propertyRequests.filter((r) => r.status === 'completed').length,
+    closed: propertyRequests.filter((r) => r.status === 'closed').length,
   };
 
   return (

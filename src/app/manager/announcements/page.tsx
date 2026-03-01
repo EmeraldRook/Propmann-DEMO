@@ -4,6 +4,7 @@ import { Card, Button, List, Tag, Typography, Space, Avatar, Badge } from 'antd'
 import { PlusOutlined, NotificationOutlined, AlertOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import { announcements } from '@/data/announcements';
 import { residents } from '@/data/residents';
+import { useProperty } from '@/contexts/PropertyContext';
 
 const { Text, Title, Paragraph } = Typography;
 
@@ -14,6 +15,11 @@ const typeConfig: Record<string, { color: string; icon: React.ReactNode; label: 
 };
 
 export default function AnnouncementsPage() {
+  const { selectedProperty } = useProperty();
+  const propertyAnnouncements = announcements.filter(
+    (a) => a.propertyId === selectedProperty || a.propertyId === 'all'
+  );
+
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 24 }}>
@@ -24,7 +30,7 @@ export default function AnnouncementsPage() {
       </div>
 
       <List
-        dataSource={announcements}
+        dataSource={propertyAnnouncements}
         renderItem={(ann) => {
           const config = typeConfig[ann.type];
           const totalResidents = ann.propertyId === 'all'

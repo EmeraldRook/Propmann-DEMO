@@ -7,15 +7,18 @@ import type { ColumnsType } from 'antd/es/table';
 import { residents } from '@/data/residents';
 import { payments } from '@/data/payments';
 import { maintenanceRequests } from '@/data/maintenance';
+import { useProperty } from '@/contexts/PropertyContext';
 import { Resident } from '@/types';
 
 const { Text, Title } = Typography;
 
 export default function ResidentsPage() {
+  const { selectedProperty } = useProperty();
   const [searchText, setSearchText] = useState('');
   const [selectedResident, setSelectedResident] = useState<Resident | null>(null);
 
-  const filtered = residents.filter((r) => {
+  const propertyResidents = residents.filter((r) => r.propertyId === selectedProperty);
+  const filtered = propertyResidents.filter((r) => {
     if (!searchText) return true;
     const q = searchText.toLowerCase();
     return r.name.toLowerCase().includes(q) || r.unitNumber.toLowerCase().includes(q) || r.email.toLowerCase().includes(q);

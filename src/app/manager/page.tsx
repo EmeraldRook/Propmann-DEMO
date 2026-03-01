@@ -15,26 +15,28 @@ import { properties } from '@/data/properties';
 import { maintenanceRequests } from '@/data/maintenance';
 import { residents } from '@/data/residents';
 import { payments } from '@/data/payments';
+import { useProperty } from '@/contexts/PropertyContext';
 
 const { Text, Title } = Typography;
 
 export default function ManagerDashboard() {
-  const prop = properties[0]; // Sunset Residences
+  const { selectedProperty } = useProperty();
+  const prop = properties.find((p) => p.id === selectedProperty) || properties[0];
   const occupancyRate = Math.round((prop.occupiedUnits / prop.unitCount) * 100);
   const openRequests = maintenanceRequests.filter(
-    (r) => r.propertyId === 'prop-1' && (r.status === 'new' || r.status === 'in_progress')
+    (r) => r.propertyId === selectedProperty && (r.status === 'new' || r.status === 'in_progress')
   );
   const urgentCount = openRequests.filter((r) => r.priority === 'urgent').length;
   const mediumCount = openRequests.filter((r) => r.priority === 'medium').length;
   const lowCount = openRequests.filter((r) => r.priority === 'low').length;
 
-  const marchPayments = payments.filter((p) => p.dueDate.startsWith('2026-03') && p.propertyId === 'prop-1');
+  const marchPayments = payments.filter((p) => p.dueDate.startsWith('2026-03') && p.propertyId === selectedProperty);
   const paidCount = marchPayments.filter((p) => p.status === 'paid').length;
   const totalRent = marchPayments.reduce((sum, p) => sum + p.amount, 0);
   const collectedRent = marchPayments.filter((p) => p.status === 'paid').reduce((sum, p) => sum + p.amount, 0);
   const collectionRate = totalRent > 0 ? Math.round((collectedRent / totalRent) * 100) : 0;
 
-  const propResidents = residents.filter((r) => r.propertyId === 'prop-1');
+  const propResidents = residents.filter((r) => r.propertyId === selectedProperty);
 
   return (
     <div>

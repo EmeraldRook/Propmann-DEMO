@@ -36,6 +36,10 @@ export const units: Unit[] = [
   { id: 'u-20', propertyId: 'prop-2', number: '1A', floor: 1, status: 'occupied', residentId: 'r-11', rentAmount: 2000 },
   { id: 'u-21', propertyId: 'prop-2', number: '6D', floor: 6, status: 'occupied', residentId: 'r-13', rentAmount: 2300 },
   { id: 'u-22', propertyId: 'prop-2', number: '10B', floor: 10, status: 'occupied', residentId: 'r-12', rentAmount: 2600 },
+  { id: 'u-25', propertyId: 'prop-2', number: '3B', floor: 3, status: 'occupied', residentId: 'r-14', rentAmount: 2100 },
+  { id: 'u-26', propertyId: 'prop-2', number: '5A', floor: 5, status: 'occupied', residentId: 'r-15', rentAmount: 2200 },
+  { id: 'u-27', propertyId: 'prop-2', number: '7C', floor: 7, status: 'occupied', residentId: 'r-16', rentAmount: 2500 },
+  { id: 'u-28', propertyId: 'prop-2', number: '9A', floor: 9, status: 'occupied', residentId: 'r-17', rentAmount: 2700 },
   { id: 'u-23', propertyId: 'prop-2', number: '4C', floor: 4, status: 'vacant', rentAmount: 2100 },
-  { id: 'u-24', propertyId: 'prop-2', number: '8A', floor: 8, status: 'vacant', rentAmount: 2400 },
+  { id: 'u-24', propertyId: 'prop-2', number: '8A', floor: 8, status: 'maintenance', rentAmount: 2400 },
 ];

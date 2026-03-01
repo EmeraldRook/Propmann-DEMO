@@ -14,6 +14,10 @@ export const residents: Resident[] = [
   { id: 'r-11', name: 'Michael Brown', email: 'michael.b@email.com', phone: '+62 813-4567-8901', propertyId: 'prop-2', unitId: 'u-20', unitNumber: '1A', leaseStart: '2025-03-01', leaseEnd: '2026-02-28', rentAmount: 2000 },
   { id: 'r-12', name: 'Aisha Rahman', email: 'aisha.r@email.com', phone: '+62 821-2345-6789', propertyId: 'prop-2', unitId: 'u-22', unitNumber: '10B', leaseStart: '2025-06-01', leaseEnd: '2026-05-31', rentAmount: 2600 },
   { id: 'r-13', name: 'Carlos Rodriguez', email: 'carlos.r@email.com', phone: '+62 822-3456-7890', propertyId: 'prop-2', unitId: 'u-21', unitNumber: '6D', leaseStart: '2025-11-01', leaseEnd: '2026-10-31', rentAmount: 2300 },
+  { id: 'r-14', name: 'Yuki Taniguchi', email: 'yuki.t@email.com', phone: '+62 814-6789-0123', propertyId: 'prop-2', unitId: 'u-25', unitNumber: '3B', leaseStart: '2025-04-01', leaseEnd: '2026-03-31', rentAmount: 2100 },
+  { id: 'r-15', name: 'Fatima Hassan', email: 'fatima.h@email.com', phone: '+62 815-7890-1234', propertyId: 'prop-2', unitId: 'u-26', unitNumber: '5A', leaseStart: '2025-08-01', leaseEnd: '2026-07-31', rentAmount: 2200 },
+  { id: 'r-16', name: 'Daniel Park', email: 'daniel.p@email.com', phone: '+62 816-8901-2345', propertyId: 'prop-2', unitId: 'u-27', unitNumber: '7C', leaseStart: '2025-05-01', leaseEnd: '2026-04-30', rentAmount: 2500 },
+  { id: 'r-17', name: 'Nina Petrova', email: 'nina.p@email.com', phone: '+62 817-9012-3456', propertyId: 'prop-2', unitId: 'u-28', unitNumber: '9A', leaseStart: '2025-07-01', leaseEnd: '2026-06-30', rentAmount: 2700 },
 ];
 
 export const currentResident = residents[0]; // Ahmad Rizki for resident portal

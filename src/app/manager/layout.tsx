@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { ConfigProvider, Layout, Menu, Avatar, Typography, Select, Badge } from 'antd';
 import {
@@ -16,6 +15,7 @@ import {
 } from '@ant-design/icons';
 import { Logo } from '@/components/shared/Logo';
 import { properties } from '@/data/properties';
+import { PropertyProvider, useProperty } from '@/contexts/PropertyContext';
 import managerTheme from '@/theme/managerTheme';
 
 const { Sider, Header, Content } = Layout;
@@ -32,11 +32,17 @@ const menuItems = [
 ];
 
 export default function ManagerLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <PropertyProvider>
+      <ManagerLayoutInner>{children}</ManagerLayoutInner>
+    </PropertyProvider>
+  );
+}
+
+function ManagerLayoutInner({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
-  const [selectedProperty, setSelectedProperty] = useState('prop-1');
-
-  const currentProperty = properties.find((p) => p.id === selectedProperty) || properties[0];
+  const { selectedProperty, setSelectedProperty } = useProperty();
 
   return (
     <ConfigProvider theme={managerTheme}>

@@ -4,15 +4,18 @@ import { Card, Row, Col, Statistic, Table, Tag, Typography, Progress, Space } fr
 import { DollarOutlined, ArrowUpOutlined, WarningOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
 import { payments } from '@/data/payments';
+import { useProperty } from '@/contexts/PropertyContext';
 import { Payment } from '@/types';
 
 const { Text, Title } = Typography;
 
 export default function FinancialsPage() {
-  const marchPayments = payments.filter((p) => p.dueDate.startsWith('2026-03') && p.type === 'rent');
+  const { selectedProperty } = useProperty();
+  const propertyPayments = payments.filter((p) => p.propertyId === selectedProperty);
+  const marchPayments = propertyPayments.filter((p) => p.dueDate.startsWith('2026-03') && p.type === 'rent');
   const paidPayments = marchPayments.filter((p) => p.status === 'paid');
   const pendingPayments = marchPayments.filter((p) => p.status === 'pending');
-  const overduePayments = payments.filter((p) => p.status === 'overdue');
+  const overduePayments = propertyPayments.filter((p) => p.status === 'overdue');
 
   const totalExpected = marchPayments.reduce((s, p) => s + p.amount, 0);
   const totalCollected = paidPayments.reduce((s, p) => s + p.amount, 0);
@@ -144,7 +147,7 @@ export default function FinancialsPage() {
       <Card title="Payment History">
         <Table
           columns={columns}
-          dataSource={payments}
+          dataSource={propertyPayments}
           rowKey="id"
           pagination={{ pageSize: 10 }}
           scroll={{ x: 'max-content' }}
