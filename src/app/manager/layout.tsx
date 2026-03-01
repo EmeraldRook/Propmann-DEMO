@@ -122,7 +122,7 @@ function ManagerLayoutInner({ children }: { children: React.ReactNode }) {
               style={{ backgroundColor: 'rgba(20,184,166,0.3)', color: 'white' }}
               size={36}
             >
-              SM
+              AZ
             </Avatar>
             <div style={{ flex: 1, minWidth: 0 }}>
               <Text
@@ -130,7 +130,7 @@ function ManagerLayoutInner({ children }: { children: React.ReactNode }) {
                 style={{ color: 'white', fontSize: 13, display: 'block' }}
                 ellipsis
               >
-                Sarah Mitchell
+                Amirah Zainal
               </Text>
               <Text style={{ color: 'rgba(255,255,255,0.4)', fontSize: 12 }}>
                 Property Manager
@@ -161,7 +161,7 @@ function ManagerLayoutInner({ children }: { children: React.ReactNode }) {
                 {menuItems.find((m) => m.key === pathname)?.label || 'Dashboard'}
               </Text>
               <Text style={{ fontSize: 13, color: '#64748b' }}>
-                Welcome back, Sarah
+                Welcome back, Amirah
               </Text>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>

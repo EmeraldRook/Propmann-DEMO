@@ -40,7 +40,7 @@ export default function FinancialsPage() {
       dataIndex: 'amount',
       key: 'amount',
       width: 100,
-      render: (val: number) => <Text strong>${val.toLocaleString()}</Text>,
+      render: (val: number) => <Text strong>RM {val.toLocaleString()}</Text>,
     },
     {
       title: 'Type',
@@ -101,7 +101,7 @@ export default function FinancialsPage() {
             <Statistic
               title="Expected Revenue"
               value={totalExpected}
-              prefix="$"
+              prefix="RM "
               valueStyle={{ fontWeight: 700, color: '#0f172a' }}
             />
             <Text type="secondary" style={{ fontSize: 12 }}>March 2026</Text>
@@ -112,7 +112,7 @@ export default function FinancialsPage() {
             <Statistic
               title="Collected"
               value={totalCollected}
-              prefix={<><CheckCircleOutlined style={{ color: '#10b981', marginRight: 4 }} />$</>}
+              prefix={<><CheckCircleOutlined style={{ color: '#10b981', marginRight: 4 }} />RM </>}
               valueStyle={{ fontWeight: 700, color: '#10b981' }}
             />
             <Progress percent={collectionPct} strokeColor="#10b981" showInfo={false} style={{ marginTop: 8 }} />
@@ -124,7 +124,7 @@ export default function FinancialsPage() {
             <Statistic
               title="Pending"
               value={totalPending}
-              prefix="$"
+              prefix="RM "
               valueStyle={{ fontWeight: 700, color: '#f59e0b' }}
             />
             <Text type="secondary" style={{ fontSize: 12 }}>{pendingPayments.length} payments due</Text>
@@ -135,7 +135,7 @@ export default function FinancialsPage() {
             <Statistic
               title="Overdue"
               value={totalOverdue}
-              prefix={<><WarningOutlined style={{ color: '#ef4444', marginRight: 4 }} />$</>}
+              prefix={<><WarningOutlined style={{ color: '#ef4444', marginRight: 4 }} />RM </>}
               valueStyle={{ fontWeight: 700, color: '#ef4444' }}
             />
             <Text type="secondary" style={{ fontSize: 12 }}>{overduePayments.length} overdue payments</Text>

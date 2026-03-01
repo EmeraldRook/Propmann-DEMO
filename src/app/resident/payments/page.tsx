@@ -50,7 +50,7 @@ export default function PaymentsPage() {
               {new Date(currentDue.dueDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
             </div>
             <div style={{ fontSize: 36, fontWeight: 800, marginBottom: 16 }}>
-              ${currentDue.amount.toLocaleString()}.00
+              RM {currentDue.amount.toLocaleString()}.00
             </div>
             <button
               onClick={() => setShowPayModal(true)}
@@ -108,7 +108,7 @@ export default function PaymentsPage() {
             >
               <div>
                 <div style={{ fontSize: 14, fontWeight: 600, color: '#1e293b' }}>
-                  ${payment.amount.toLocaleString()}
+                  RM {payment.amount.toLocaleString()}
                 </div>
                 <div style={{ fontSize: 12, color: '#64748b', marginTop: 2 }}>
                   {payment.type.charAt(0).toUpperCase() + payment.type.slice(1)} &middot; Due{' '}
@@ -155,7 +155,7 @@ export default function PaymentsPage() {
       >
         <div style={{ textAlign: 'center', padding: '24px 0' }}>
           <div style={{ fontSize: 36, fontWeight: 800, color: '#0f172a', marginBottom: 4 }}>
-            ${currentDue?.amount.toLocaleString()}.00
+            RM {currentDue?.amount.toLocaleString()}.00
           </div>
           <Text type="secondary" style={{ display: 'block', marginBottom: 24 }}>March 2026 Rent</Text>
           <div

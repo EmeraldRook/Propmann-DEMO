@@ -52,7 +52,7 @@ export default function PropertiesPage() {
       dataIndex: 'rentAmount',
       key: 'rent',
       width: 100,
-      render: (val: number) => <Text strong>${val.toLocaleString()}</Text>,
+      render: (val: number) => <Text strong>RM {val.toLocaleString()}</Text>,
     },
   ];
 
@@ -129,7 +129,7 @@ export default function PropertiesPage() {
                 <Statistic
                   title="Total Monthly Rent"
                   value={totalRent}
-                  prefix="$"
+                  prefix="RM "
                   valueStyle={{ color: '#0f766e' }}
                 />
               </Col>

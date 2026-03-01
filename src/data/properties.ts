@@ -3,22 +3,22 @@ import { Property, Unit } from '@/types';
 export const properties: Property[] = [
   {
     id: 'prop-1',
-    name: 'Sunset Residences',
-    address: 'Jl. Sunset Boulevard 88, Jakarta Selatan',
+    name: 'Seri Kasturi Residences',
+    address: 'Jalan Kiara 3, Mont Kiara, 50480 Kuala Lumpur',
     unitCount: 48,
     occupiedUnits: 44,
   },
   {
     id: 'prop-2',
-    name: 'Green Towers',
-    address: 'Jl. Kemang Raya 45, Jakarta Selatan',
+    name: 'Tropika Residensi',
+    address: 'Persiaran Tropicana Utama, Petaling Jaya, 47410 Selangor',
     unitCount: 32,
     occupiedUnits: 28,
   },
 ];
 
 export const units: Unit[] = [
-  // Sunset Residences units
+  // Seri Kasturi Residences units
   { id: 'u-1', propertyId: 'prop-1', number: '1A', floor: 1, status: 'occupied', residentId: 'r-7', rentAmount: 2800 },
   { id: 'u-2', propertyId: 'prop-1', number: '3C', floor: 3, status: 'occupied', residentId: 'r-4', rentAmount: 2200 },
   { id: 'u-3', propertyId: 'prop-1', number: '5B', floor: 5, status: 'occupied', residentId: 'r-6', rentAmount: 2500 },
@@ -32,7 +32,7 @@ export const units: Unit[] = [
   { id: 'u-11', propertyId: 'prop-1', number: '14A', floor: 14, status: 'vacant', rentAmount: 2800 },
   { id: 'u-12', propertyId: 'prop-1', number: '20C', floor: 20, status: 'maintenance', rentAmount: 3000 },
   { id: 'u-13', propertyId: 'prop-1', number: '25B', floor: 25, status: 'vacant', rentAmount: 3400 },
-  // Green Towers units
+  // Tropika Residensi units
   { id: 'u-20', propertyId: 'prop-2', number: '1A', floor: 1, status: 'occupied', residentId: 'r-11', rentAmount: 2000 },
   { id: 'u-21', propertyId: 'prop-2', number: '6D', floor: 6, status: 'occupied', residentId: 'r-13', rentAmount: 2300 },
   { id: 'u-22', propertyId: 'prop-2', number: '10B', floor: 10, status: 'occupied', residentId: 'r-12', rentAmount: 2600 },

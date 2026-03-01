@@ -61,7 +61,7 @@ export default function ResidentsPage() {
       width: 100,
       render: (val: number) => (
         <Text strong style={{ fontSize: 13 }}>
-          ${val.toLocaleString()}
+          RM {val.toLocaleString()}
         </Text>
       ),
     },
@@ -154,7 +154,7 @@ export default function ResidentsPage() {
               <Descriptions.Item label={<><PhoneOutlined /> Phone</>}>{selectedResident.phone}</Descriptions.Item>
               <Descriptions.Item label="Lease Start">{selectedResident.leaseStart}</Descriptions.Item>
               <Descriptions.Item label="Lease End">{selectedResident.leaseEnd}</Descriptions.Item>
-              <Descriptions.Item label="Monthly Rent">${selectedResident.rentAmount.toLocaleString()}</Descriptions.Item>
+              <Descriptions.Item label="Monthly Rent">RM {selectedResident.rentAmount.toLocaleString()}</Descriptions.Item>
             </Descriptions>
 
             <Divider />
@@ -175,7 +175,7 @@ export default function ResidentsPage() {
                     }}
                   >
                     <div>
-                      <Text style={{ fontSize: 13 }}>${p.amount.toLocaleString()}</Text>
+                      <Text style={{ fontSize: 13 }}>RM {p.amount.toLocaleString()}</Text>
                       <br />
                       <Text type="secondary" style={{ fontSize: 11 }}>
                         Due {new Date(p.dueDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}

@@ -3,7 +3,7 @@ import { Amenity, Booking } from '@/types';
 export const amenities: Amenity[] = [
   { id: 'am-1', propertyId: 'prop-1', name: 'Rooftop BBQ Area', description: 'Open-air BBQ station with seating for 20. Includes grills, prep tables, and lighting.', available: true },
   { id: 'am-2', propertyId: 'prop-1', name: 'Swimming Pool', description: '25m lap pool with children\'s wading area. Open 6AM-9PM daily.', available: true },
-  { id: 'am-3', propertyId: 'prop-1', name: 'Fitness Center', description: 'Fully equipped gym with cardio machines, free weights, and yoga area.', available: true },
+  { id: 'am-3', propertyId: 'prop-1', name: 'Gymnasium', description: 'Fully equipped gym with cardio machines, free weights, and yoga area.', available: true },
   { id: 'am-4', propertyId: 'prop-1', name: 'Meeting Room', description: 'Air-conditioned meeting room for 12 people with projector and whiteboard.', available: true },
   { id: 'am-5', propertyId: 'prop-1', name: 'Children\'s Playground', description: 'Outdoor playground with slides, swings, and soft-fall surfacing.', available: false },
   { id: 'am-6', propertyId: 'prop-2', name: 'Rooftop Lounge', description: 'Lounge area with city views, comfortable seating, and ambient lighting.', available: true },
@@ -13,15 +13,15 @@ export const amenities: Amenity[] = [
 ];
 
 export const bookings: Booking[] = [
-  { id: 'bk-1', amenityId: 'am-1', amenityName: 'Rooftop BBQ Area', residentId: 'r-1', residentName: 'Ahmad Rizki', date: '2026-03-02', startTime: '16:00', endTime: '18:00', status: 'confirmed' },
-  { id: 'bk-2', amenityId: 'am-2', amenityName: 'Swimming Pool', residentId: 'r-6', residentName: 'Priya Sharma', date: '2026-03-01', startTime: '07:00', endTime: '08:00', status: 'confirmed' },
-  { id: 'bk-3', amenityId: 'am-4', amenityName: 'Meeting Room', residentId: 'r-9', residentName: 'Sarah Kim', date: '2026-03-03', startTime: '14:00', endTime: '16:00', status: 'confirmed' },
-  { id: 'bk-4', amenityId: 'am-3', amenityName: 'Fitness Center', residentId: 'r-3', residentName: 'David Chen', date: '2026-03-01', startTime: '06:00', endTime: '07:30', status: 'confirmed' },
-  { id: 'bk-5', amenityId: 'am-1', amenityName: 'Rooftop BBQ Area', residentId: 'r-10', residentName: 'Robert Taylor', date: '2026-03-08', startTime: '17:00', endTime: '20:00', status: 'confirmed' },
-  { id: 'bk-6', amenityId: 'am-6', amenityName: 'Rooftop Lounge', residentId: 'r-12', residentName: 'Aisha Rahman', date: '2026-03-05', startTime: '19:00', endTime: '21:00', status: 'confirmed' },
-  { id: 'bk-7', amenityId: 'am-2', amenityName: 'Swimming Pool', residentId: 'r-1', residentName: 'Ahmad Rizki', date: '2026-02-26', startTime: '06:00', endTime: '07:00', status: 'confirmed' },
-  { id: 'bk-8', amenityId: 'am-4', amenityName: 'Meeting Room', residentId: 'r-5', residentName: 'Budi Santoso', date: '2026-02-24', startTime: '10:00', endTime: '12:00', status: 'cancelled' },
-  { id: 'bk-9', amenityId: 'am-7', amenityName: 'Co-Working Space', residentId: 'r-16', residentName: 'Daniel Park', date: '2026-03-03', startTime: '09:00', endTime: '17:00', status: 'confirmed' },
-  { id: 'bk-10', amenityId: 'am-8', amenityName: 'Yoga Studio', residentId: 'r-15', residentName: 'Fatima Hassan', date: '2026-03-04', startTime: '07:00', endTime: '08:00', status: 'confirmed' },
-  { id: 'bk-11', amenityId: 'am-6', amenityName: 'Rooftop Lounge', residentId: 'r-17', residentName: 'Nina Petrova', date: '2026-03-07', startTime: '18:00', endTime: '20:00', status: 'confirmed' },
+  { id: 'bk-1', amenityId: 'am-1', amenityName: 'Rooftop BBQ Area', residentId: 'r-1', residentName: 'Ahmad Razali', date: '2026-03-02', startTime: '16:00', endTime: '18:00', status: 'confirmed' },
+  { id: 'bk-2', amenityId: 'am-2', amenityName: 'Swimming Pool', residentId: 'r-6', residentName: 'Deepa Nair', date: '2026-03-01', startTime: '07:00', endTime: '08:00', status: 'confirmed' },
+  { id: 'bk-3', amenityId: 'am-4', amenityName: 'Meeting Room', residentId: 'r-9', residentName: 'Siti Hajar', date: '2026-03-03', startTime: '14:00', endTime: '16:00', status: 'confirmed' },
+  { id: 'bk-4', amenityId: 'am-3', amenityName: 'Gymnasium', residentId: 'r-3', residentName: 'Rajesh Kumar', date: '2026-03-01', startTime: '06:00', endTime: '07:30', status: 'confirmed' },
+  { id: 'bk-5', amenityId: 'am-1', amenityName: 'Rooftop BBQ Area', residentId: 'r-10', residentName: 'Lee Jun Kit', date: '2026-03-08', startTime: '17:00', endTime: '20:00', status: 'confirmed' },
+  { id: 'bk-6', amenityId: 'am-6', amenityName: 'Rooftop Lounge', residentId: 'r-12', residentName: 'Chong Mei Yee', date: '2026-03-05', startTime: '19:00', endTime: '21:00', status: 'confirmed' },
+  { id: 'bk-7', amenityId: 'am-2', amenityName: 'Swimming Pool', residentId: 'r-1', residentName: 'Ahmad Razali', date: '2026-02-26', startTime: '06:00', endTime: '07:00', status: 'confirmed' },
+  { id: 'bk-8', amenityId: 'am-4', amenityName: 'Meeting Room', residentId: 'r-5', residentName: 'Wong Kai Wen', date: '2026-02-24', startTime: '10:00', endTime: '12:00', status: 'cancelled' },
+  { id: 'bk-9', amenityId: 'am-7', amenityName: 'Co-Working Space', residentId: 'r-16', residentName: 'Tan Wei Liang', date: '2026-03-03', startTime: '09:00', endTime: '17:00', status: 'confirmed' },
+  { id: 'bk-10', amenityId: 'am-8', amenityName: 'Yoga Studio', residentId: 'r-15', residentName: 'Kavitha Rajan', date: '2026-03-04', startTime: '07:00', endTime: '08:00', status: 'confirmed' },
+  { id: 'bk-11', amenityId: 'am-6', amenityName: 'Rooftop Lounge', residentId: 'r-17', residentName: 'Zulkifli Hassan', date: '2026-03-07', startTime: '18:00', endTime: '20:00', status: 'confirmed' },
 ];

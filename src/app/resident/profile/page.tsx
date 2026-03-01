@@ -36,7 +36,7 @@ export default function ProfilePage() {
           {resident.name.split(' ').map((w) => w[0]).join('')}
         </div>
         <h1 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 4px' }}>{resident.name}</h1>
-        <p style={{ fontSize: 13, opacity: 0.7, margin: 0 }}>Unit {resident.unitNumber} &middot; Sunset Residences</p>
+        <p style={{ fontSize: 13, opacity: 0.7, margin: 0 }}>Unit {resident.unitNumber} &middot; Seri Kasturi Residences</p>
       </div>
 
       <div style={{ padding: 20 }}>
@@ -90,7 +90,7 @@ export default function ProfilePage() {
           {[
             { label: 'Lease Start', value: new Date(resident.leaseStart).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) },
             { label: 'Lease End', value: new Date(resident.leaseEnd).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) },
-            { label: 'Monthly Rent', value: `$${resident.rentAmount.toLocaleString()}` },
+            { label: 'Monthly Rent', value: `RM ${resident.rentAmount.toLocaleString()}` },
           ].map((item, i) => (
             <div
               key={item.label}

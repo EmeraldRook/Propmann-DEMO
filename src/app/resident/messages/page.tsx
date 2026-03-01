@@ -37,10 +37,10 @@ export default function MessagesPage() {
               fontWeight: 700,
             }}
           >
-            SM
+            AZ
           </div>
           <div>
-            <h1 style={{ fontSize: 16, fontWeight: 700, color: '#0f172a', margin: 0 }}>Sarah Mitchell</h1>
+            <h1 style={{ fontSize: 16, fontWeight: 700, color: '#0f172a', margin: 0 }}>Amirah Zainal</h1>
             <p style={{ fontSize: 12, color: '#64748b', margin: 0 }}>Property Manager</p>
           </div>
         </div>

@@ -149,7 +149,7 @@ export default function ManagerDashboard() {
             <Statistic
               title="Monthly Revenue"
               value={totalRent}
-              prefix="$"
+              prefix="RM"
               formatter={(value) =>
                 `${Number(value).toLocaleString()}`
               }
@@ -319,7 +319,7 @@ export default function ManagerDashboard() {
                       <Text strong style={{ fontSize: 13 }}>Rent payment received</Text>
                       <br />
                       <Text type="secondary" style={{ fontSize: 12 }}>
-                        Unit 12B &middot; Ahmad Rizki &middot; $2,400
+                        Unit 12B &middot; Ahmad Razali &middot; RM 2,400
                       </Text>
                       <br />
                       <Text type="secondary" style={{ fontSize: 11 }}>2m ago</Text>
@@ -347,7 +347,7 @@ export default function ManagerDashboard() {
                       <Text strong style={{ fontSize: 13 }}>New resident onboarded</Text>
                       <br />
                       <Text type="secondary" style={{ fontSize: 12 }}>
-                        Unit 3C &middot; Lisa Tanaka
+                        Unit 3C &middot; Tan Mei Ling
                       </Text>
                       <br />
                       <Text type="secondary" style={{ fontSize: 11 }}>1h ago</Text>
@@ -361,7 +361,7 @@ export default function ManagerDashboard() {
                       <Text strong style={{ fontSize: 13 }}>Request completed</Text>
                       <br />
                       <Text type="secondary" style={{ fontSize: 12 }}>
-                        Unit 15D &middot; AC repair
+                        Unit 15D &middot; Aircond repair
                       </Text>
                       <br />
                       <Text type="secondary" style={{ fontSize: 11 }}>3h ago</Text>
@@ -390,9 +390,9 @@ export default function ManagerDashboard() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {[
                 { month: 'MAR', day: '1', color: '#ef4444', bg: '#fef2f2', label: 'Rent Due Date', sub: '22 of 44 units pending' },
-                { month: 'MAR', day: '3', color: '#0f766e', bg: '#f0fdfa', label: 'Plumber — Unit 7A', sub: 'Scheduled 9:00 AM' },
+                { month: 'MAR', day: '3', color: '#0f766e', bg: '#f0fdfa', label: 'Plumber — Unit 7A', sub: 'Encik Zaki, 9:00 AM' },
                 { month: 'MAR', day: '5', color: '#8b5cf6', bg: '#f5f3ff', label: 'Lease Expiry — Unit 9B', sub: 'Renewal pending review' },
-                { month: 'MAR', day: '8', color: '#10b981', bg: '#ecfdf5', label: 'Building Inspection', sub: 'Annual fire safety check' },
+                { month: 'MAR', day: '8', color: '#10b981', bg: '#ecfdf5', label: 'Bomba Inspection', sub: 'Annual fire safety check' },
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <div

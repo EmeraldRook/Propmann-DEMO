@@ -119,7 +119,7 @@ export default function ResidentHome() {
             </svg>
           </div>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 14, fontWeight: 600 }}>Sunset Residences</div>
+            <div style={{ fontSize: 14, fontWeight: 600 }}>Seri Kasturi Residences</div>
             <div style={{ fontSize: 12, opacity: 0.6 }}>Unit {resident.unitNumber} &middot; Floor 12</div>
           </div>
           <svg width="16" height="16" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2" viewBox="0 0 24 24">
@@ -174,7 +174,7 @@ export default function ResidentHome() {
             </span>
           </div>
           <div style={{ fontSize: 30, fontWeight: 800, color: '#0f172a', marginBottom: 2 }}>
-            ${currentPayment?.amount.toLocaleString() || '2,400'}.00
+            RM {currentPayment?.amount.toLocaleString() || '2,400'}.00
           </div>
           <div style={{ fontSize: 12, color: '#64748b', marginBottom: 16 }}>/ month</div>
           <button
