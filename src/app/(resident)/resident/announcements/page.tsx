@@ -22,7 +22,7 @@ export default function ResidentAnnouncementsPage() {
     <>
       <ResidentHeader title="Announcements" subtitle={residentProfile.propertyName} />
 
-      <div className="px-4 -mt-3 space-y-3">
+      <div className="px-4 pt-4 space-y-3 pb-4">
         {announcements.map((a) => (
           <Card key={a.id}>
             <CardContent className="pt-4 pb-3 space-y-2">

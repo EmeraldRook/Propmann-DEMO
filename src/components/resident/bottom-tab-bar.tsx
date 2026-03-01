@@ -16,7 +16,10 @@ export function BottomTabBar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 safe-area-pb">
+    <nav
+      className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200"
+      style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
+    >
       <div className="max-w-[430px] mx-auto flex">
         {tabs.map((tab) => {
           const isActive =
@@ -27,7 +30,7 @@ export function BottomTabBar() {
             <Link
               key={tab.href}
               href={tab.href}
-              className={`flex-1 flex flex-col items-center gap-0.5 py-2 text-[11px] font-medium transition-colors ${
+              className={`flex-1 flex flex-col items-center justify-center gap-0.5 min-h-[52px] text-[11px] font-medium transition-colors ${
                 isActive ? 'text-teal-700' : 'text-gray-400 hover:text-gray-600'
               }`}
             >

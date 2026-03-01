@@ -10,13 +10,19 @@ interface ResidentHeaderProps {
 
 export function ResidentHeader({ title, subtitle }: ResidentHeaderProps) {
   return (
-    <header className="bg-gradient-to-br from-teal-700 to-teal-500 text-white px-4 pt-12 pb-6 rounded-b-3xl">
+    <header
+      className="bg-gradient-to-br from-teal-700 to-teal-500 text-white px-4 pb-5 rounded-b-2xl"
+      style={{ paddingTop: 'calc(env(safe-area-inset-top, 12px) + 16px)' }}
+    >
       <div className="flex items-start justify-between">
         <div>
           <p className="text-teal-100 text-sm">{subtitle ?? 'Welcome back'}</p>
           <h1 className="text-xl font-bold mt-0.5">{title}</h1>
         </div>
-        <button className="relative p-2 rounded-full bg-white/15 hover:bg-white/25 transition-colors">
+        <button
+          className="relative min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full bg-white/15 hover:bg-white/25 transition-colors"
+          aria-label="Notifications"
+        >
           <Bell className="size-5" />
           <Badge className="absolute -top-1 -right-1 h-4 min-w-4 px-1 text-[10px] bg-red-500 text-white border-0">
             2

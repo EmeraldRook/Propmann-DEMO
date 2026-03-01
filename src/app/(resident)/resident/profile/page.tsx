@@ -15,7 +15,7 @@ export default function ResidentProfilePage() {
     <>
       <ResidentHeader title="Profile" subtitle="My account" />
 
-      <div className="px-4 -mt-3 space-y-4">
+      <div className="px-4 pt-4 space-y-4 pb-4">
         {/* Profile card */}
         <Card>
           <CardContent className="pt-5 pb-4 flex flex-col items-center text-center">

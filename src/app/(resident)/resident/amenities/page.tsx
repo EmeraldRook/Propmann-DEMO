@@ -23,7 +23,7 @@ export default function ResidentAmenitiesPage() {
     <>
       <ResidentHeader title="Amenities" subtitle={residentProfile.propertyName} />
 
-      <div className="px-4 -mt-3 space-y-4">
+      <div className="px-4 pt-4 space-y-4 pb-4">
         {/* My bookings */}
         {myBookings.length > 0 && (
           <div className="space-y-2">

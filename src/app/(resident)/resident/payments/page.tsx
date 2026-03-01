@@ -23,7 +23,7 @@ export default function ResidentPaymentsPage() {
     <>
       <ResidentHeader title="Payments" subtitle="Payment history" />
 
-      <div className="px-4 -mt-3 space-y-4">
+      <div className="px-4 pt-4 space-y-4 pb-4">
         {/* Balance card */}
         <Card className="bg-gradient-to-br from-teal-700 to-teal-500 text-white border-0 shadow-lg">
           <CardContent className="pt-5 pb-4 text-center">

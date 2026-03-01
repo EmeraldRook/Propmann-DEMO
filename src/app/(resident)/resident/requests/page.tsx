@@ -31,7 +31,7 @@ export default function ResidentRequestsPage() {
     <>
       <ResidentHeader title="Maintenance" subtitle="Requests" />
 
-      <div className="px-4 -mt-3 space-y-3">
+      <div className="px-4 pt-4 space-y-3 pb-4">
         <Button className="w-full bg-teal-700 hover:bg-teal-800">
           <Plus className="size-4 mr-2" />
           Submit New Request
