@@ -179,7 +179,11 @@ export default function ManagerLayout({ children }: { children: React.ReactNode 
             </div>
           </Header>
 
-          <Content id="main-content" role="main" style={{ padding: 32 }}>{children}</Content>
+          <Content id="main-content" role="main" style={{ padding: 32 }}>
+            <div key={pathname} className="page-transition">
+              {children}
+            </div>
+          </Content>
         </Layout>
       </Layout>
     </ConfigProvider>

@@ -77,7 +77,9 @@ export default function ResidentLayout({ children }: { children: React.ReactNode
         }}
       >
         <main id="resident-content">
-          {children}
+          <div key={pathname} className="page-transition">
+            {children}
+          </div>
         </main>
 
         {/* Bottom Tab Bar */}
