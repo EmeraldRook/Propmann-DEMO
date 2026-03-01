@@ -22,6 +22,7 @@ desktop.ini
 dist/
 build/
 out/
+.next/
 
 # Logs
 *.log

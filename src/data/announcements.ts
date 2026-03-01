@@ -1,0 +1,10 @@
+import { Announcement } from '@/types';
+
+export const announcements: Announcement[] = [
+  { id: 'ann-1', propertyId: 'prop-1', title: 'Water Shutdown Notice', content: 'Scheduled maintenance on Mar 3, 9AM-12PM. Water supply will be temporarily interrupted for all units. Please store water in advance.', type: 'alert', createdAt: '2026-02-28T10:30:00Z', readBy: ['r-1', 'r-3', 'r-5'] },
+  { id: 'ann-2', propertyId: 'prop-1', title: 'New BBQ Area Hours', content: 'The rooftop BBQ area is now available until 10PM on weekends (Friday-Sunday). Advance booking is required through the app. Maximum 4-hour booking per session.', type: 'update', createdAt: '2026-02-27T09:00:00Z', readBy: ['r-1', 'r-4', 'r-6', 'r-7', 'r-8'] },
+  { id: 'ann-3', propertyId: 'all', title: 'March Rent Reminder', content: 'Monthly rent is due on March 1. Please ensure timely payment to avoid late fees. You can pay through the Propmann app or via bank transfer.', type: 'notice', createdAt: '2026-02-26T08:00:00Z', readBy: ['r-1', 'r-2', 'r-3', 'r-5', 'r-6', 'r-9', 'r-11'] },
+  { id: 'ann-4', propertyId: 'prop-1', title: 'Elevator Maintenance Complete', content: 'Elevator B maintenance has been completed successfully. All elevators are now fully operational. Thank you for your patience.', type: 'update', createdAt: '2026-02-24T14:00:00Z', readBy: ['r-1', 'r-3', 'r-4', 'r-5', 'r-6', 'r-7', 'r-8', 'r-9', 'r-10'] },
+  { id: 'ann-5', propertyId: 'prop-2', title: 'Parking Lot Repainting', content: 'Parking lot level B1 will be repainted this weekend (Mar 1-2). Please use B2 parking during this period.', type: 'notice', createdAt: '2026-02-27T11:00:00Z', readBy: ['r-11', 'r-12'] },
+  { id: 'ann-6', propertyId: 'prop-1', title: 'Fire Drill Scheduled', content: 'Annual fire drill will take place on March 8, 10AM. All residents are required to participate. Assembly point: Ground floor lobby.', type: 'alert', createdAt: '2026-02-25T09:00:00Z', readBy: ['r-1', 'r-5'] },
+];
