@@ -8,6 +8,7 @@ import { Progress } from '@/components/ui/progress';
 import { useProperty } from '@/context/PropertyContext';
 import { getAnnouncementsByProperty } from '@/data/announcements';
 import { formatRelativeTime } from '@/lib/format';
+import { CreateAnnouncementSheet } from '@/components/manager/create-announcement-sheet';
 
 const categoryVariant: Record<string, 'default' | 'secondary' | 'destructive' | 'outline'> = {
   general: 'secondary',
@@ -25,6 +26,10 @@ export default function AnnouncementsPage() {
     <>
       <Header title="Announcements" />
       <div className="p-4 lg:p-6 space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold">All Announcements</h2>
+          <CreateAnnouncementSheet />
+        </div>
         {announcements.map((announcement) => {
           const readPercent = Math.round((announcement.readCount / announcement.totalRecipients) * 100);
           return (

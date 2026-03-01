@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ResidentHeader } from '@/components/resident/resident-header';
+import { BookAmenitySheet } from '@/components/resident/book-amenity-sheet';
 import { residentProfile } from '@/data/profile';
 import { getAmenitiesByProperty, getBookingsByResident } from '@/data/amenities';
 import { formatDate } from '@/lib/format';
@@ -66,9 +67,11 @@ export default function ResidentAmenitiesPage() {
                   {amenity.operatingHours}
                 </p>
                 {amenity.bookingRequired && amenity.status === 'available' && (
-                  <Button size="sm" variant="outline" className="w-full h-7 text-xs mt-1">
-                    Book
-                  </Button>
+                  <BookAmenitySheet amenityName={amenity.name}>
+                    <Button size="sm" variant="outline" className="w-full h-7 text-xs mt-1">
+                      Book
+                    </Button>
+                  </BookAmenitySheet>
                 )}
               </CardContent>
             </Card>

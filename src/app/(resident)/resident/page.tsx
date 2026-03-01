@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ResidentHeader } from '@/components/resident/resident-header';
+import { PayNowDialog } from '@/components/resident/pay-now-dialog';
 import { residentProfile } from '@/data/profile';
 import { getMaintenanceByResident } from '@/data/maintenance';
 import { getPaymentsByResident } from '@/data/financials';
@@ -41,9 +42,11 @@ export default function ResidentHomePage() {
             {nextPayment && (
               <div className="flex items-center justify-between mt-3">
                 <span className="text-teal-100 text-xs">Due: {nextPayment.dueDate}</span>
-                <Button size="sm" variant="secondary" className="h-7 text-xs font-semibold bg-white text-teal-700 hover:bg-teal-50">
-                  Pay Now
-                </Button>
+                <PayNowDialog amount={nextPayment.amount}>
+                  <Button size="sm" variant="secondary" className="h-7 text-xs font-semibold bg-white text-teal-700 hover:bg-teal-50">
+                    Pay Now
+                  </Button>
+                </PayNowDialog>
               </div>
             )}
             {profile.outstandingBalance === 0 && !nextPayment && (

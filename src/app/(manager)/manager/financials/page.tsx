@@ -7,6 +7,7 @@ import { StatCard } from '@/components/manager/stat-card';
 import { DataTable } from '@/components/manager/data-table';
 import { Badge } from '@/components/ui/badge';
 import { useProperty } from '@/context/PropertyContext';
+import { RecordPaymentSheet } from '@/components/manager/record-payment-sheet';
 import { getPaymentsByProperty, getMonthlySummariesByProperty } from '@/data/financials';
 import type { Payment } from '@/types';
 import { formatRM, formatDate } from '@/lib/format';
@@ -63,6 +64,11 @@ export default function FinancialsPage() {
             icon={AlertCircle}
             badge={overdueCount > 0 ? { label: 'Action needed', variant: 'destructive' } : undefined}
           />
+        </div>
+
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold">Payment Records</h2>
+          <RecordPaymentSheet />
         </div>
 
         <DataTable columns={columns} data={payments} />

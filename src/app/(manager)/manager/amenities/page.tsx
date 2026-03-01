@@ -4,9 +4,11 @@ import { Calendar, Clock } from 'lucide-react';
 import { Header } from '@/components/manager/header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { useProperty } from '@/context/PropertyContext';
 import { getAmenitiesByProperty, getBookingsByProperty } from '@/data/amenities';
 import { formatDate } from '@/lib/format';
+import { toast } from 'sonner';
 
 const statusVariant: Record<string, 'default' | 'secondary' | 'destructive' | 'outline'> = {
   available: 'default',
@@ -81,9 +83,32 @@ export default function AmenitiesPage() {
                           </p>
                         </div>
                       </div>
-                      <Badge variant={bookingVariant[booking.status]} className="capitalize">
-                        {booking.status}
-                      </Badge>
+                      <div className="flex items-center gap-2 shrink-0 ml-3">
+                        {booking.status === 'pending' ? (
+                          <>
+                            <Button
+                              size="sm"
+                              variant="default"
+                              className="h-7 text-xs"
+                              onClick={() => toast.success(`Booking ${booking.id} approved`)}
+                            >
+                              Approve
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="h-7 text-xs"
+                              onClick={() => toast.success(`Booking ${booking.id} rejected`)}
+                            >
+                              Reject
+                            </Button>
+                          </>
+                        ) : (
+                          <Badge variant={bookingVariant[booking.status]} className="capitalize">
+                            {booking.status}
+                          </Badge>
+                        )}
+                      </div>
                     </div>
                   </CardContent>
                 </Card>

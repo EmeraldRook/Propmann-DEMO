@@ -19,6 +19,7 @@ import { getMaintenanceByProperty } from '@/data/maintenance';
 import type { MaintenanceRequest, MaintenanceStatus, MaintenancePriority } from '@/types';
 import { formatDate } from '@/lib/format';
 import { useState } from 'react';
+import { MaintenanceActions } from '@/components/manager/maintenance-actions';
 
 const statusVariant: Record<MaintenanceStatus, 'default' | 'secondary' | 'destructive' | 'outline'> = {
   new: 'default',
@@ -65,6 +66,11 @@ const columns: ColumnDef<MaintenanceRequest>[] = [
   },
   { accessorKey: 'assignedTo', header: 'Assigned To', cell: ({ row }) => row.original.assignedTo || <span className="text-muted-foreground">—</span> },
   { accessorKey: 'createdAt', header: 'Created', cell: ({ row }) => formatDate(row.original.createdAt, 'DD MMM YYYY') },
+  {
+    id: 'actions',
+    header: '',
+    cell: ({ row }) => <MaintenanceActions request={row.original} />,
+  },
 ];
 
 export default function MaintenancePage() {

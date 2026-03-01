@@ -1,10 +1,9 @@
 'use client';
 
-import { Plus } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { ResidentHeader } from '@/components/resident/resident-header';
+import { SubmitRequestSheet } from '@/components/resident/submit-request-sheet';
 import { residentProfile } from '@/data/profile';
 import { getMaintenanceByResident } from '@/data/maintenance';
 import { formatRelativeTime } from '@/lib/format';
@@ -32,10 +31,7 @@ export default function ResidentRequestsPage() {
       <ResidentHeader title="Maintenance" subtitle="Requests" />
 
       <div className="px-4 pt-4 space-y-3 pb-4">
-        <Button className="w-full bg-teal-700 hover:bg-teal-800">
-          <Plus className="size-4 mr-2" />
-          Submit New Request
-        </Button>
+        <SubmitRequestSheet />
 
         {requests.map((req) => (
           <Card key={req.id}>

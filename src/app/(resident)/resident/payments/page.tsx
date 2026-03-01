@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ResidentHeader } from '@/components/resident/resident-header';
+import { PayNowDialog } from '@/components/resident/pay-now-dialog';
 import { residentProfile } from '@/data/profile';
 import { getPaymentsByResident } from '@/data/financials';
 import { formatRM, formatDate } from '@/lib/format';
@@ -30,9 +31,11 @@ export default function ResidentPaymentsPage() {
             <p className="text-teal-100 text-xs font-medium">Outstanding Balance</p>
             <p className="text-3xl font-bold mt-1">{formatRM(totalDue)}</p>
             {totalDue > 0 && (
-              <Button size="sm" variant="secondary" className="mt-3 bg-white text-teal-700 hover:bg-teal-50 font-semibold">
-                Pay Now
-              </Button>
+              <PayNowDialog amount={totalDue}>
+                <Button size="sm" variant="secondary" className="mt-3 bg-white text-teal-700 hover:bg-teal-50 font-semibold">
+                  Pay Now
+                </Button>
+              </PayNowDialog>
             )}
           </CardContent>
         </Card>
