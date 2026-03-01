@@ -12,15 +12,13 @@ All project documentation lives in `documentation/`. Always check for relevant s
 -->
 
 ## Technical References
-When you need up-to-date documentation for libraries, frameworks, or tools (e.g. Next.js APIs, Ant Design components, TypeScript features), use the **Context7 MCP** (`resolve-library-id` then `query-docs`) rather than relying on training data. This ensures answers reflect the latest APIs and best practices.
+When you need up-to-date documentation for libraries, frameworks, or tools (e.g. Next.js APIs, shadcn/ui components, Tailwind CSS, TypeScript features), use the **Context7 MCP** (`resolve-library-id` then `query-docs`) rather than relying on training data. This ensures answers reflect the latest APIs and best practices.
 
 ## Commands
-<!-- Fill in build/test/lint commands, e.g.:
 - Install: `npm install`
 - Dev: `npm run dev`
-- Test: `npm test`
+- Build: `npm run build`
 - Lint: `npm run lint`
--->
 
 ## Code Style
 <!-- Add project-specific conventions here -->

@@ -6,18 +6,21 @@ Why we chose specific libraries and tools, and how they fit together.
 
 ---
 
-### Two UI libraries: antd (desktop) + antd-mobile (mobile)
-*Added: 2026-02-27*
+### shadcn/ui — one library for both interfaces
+*Updated: 2026-03-02*
 
-**Context**: The Manager Dashboard is a desktop web app. The Resident Portal is a mobile-first PWA. One UI library can't optimally serve both.
+**Context**: The Manager Dashboard is a desktop web app. The Resident Portal is a mobile-first PWA.
 
-**Decision**: Use `antd` for the manager interface and `antd-mobile` for the resident interface. They're from the same Ant Design family, so visual language stays consistent.
+**Decision**: Use shadcn/ui + Tailwind CSS for both interfaces. shadcn components are copy-pasted into `src/components/ui/` and styled with Tailwind utilities.
 
 **Why**:
-- `antd` has rich enterprise components (tables, charts, forms, calendars) ideal for dashboards
-- `antd-mobile` has touch-optimized, lightweight components built for mobile web
-- Same design family = consistent visual identity without compromise on UX
-- Forcing one library for both would mean either bloated mobile bundle or missing desktop features
+- shadcn/ui provides accessible, unstyled primitives (built on Radix UI) that work at any screen size
+- Tailwind utility classes make responsive design straightforward — same components, different layouts
+- No runtime CSS-in-JS — zero bundle overhead from the component library itself
+- Full control: components live in your codebase, not `node_modules`
+- Manager uses shadcn Sidebar, Table, Card components; Resident uses Card, Badge, Button with mobile-specific Tailwind classes
+
+**Trade-off**: More initial setup than a batteries-included library like Ant Design, but much more control over styling and smaller bundle size.
 
 ---
 
@@ -29,8 +32,7 @@ Why we chose specific libraries and tools, and how they fit together.
 **Decision**: Next.js with App Router — the newer file-based routing model.
 
 **Why**:
-- File-based routing maps cleanly to our `manager/` and `resident/` route groups
-- Route Handlers (`route.ts`) give us a mock API without a separate backend
+- Route groups `(manager)` and `(resident)` give each interface its own layout without URL prefix
 - Built-in `app/manifest.ts` for PWA — no third-party library needed
 - Largest React ecosystem for components and tooling
 
@@ -45,20 +47,49 @@ Why we chose specific libraries and tools, and how they fit together.
 
 **Why**:
 - For the demo, we only need installability and standalone display (no browser chrome)
-- `next-pwa` is deprecated; Serwist is its successor but adds complexity we don't need
 - Zero config, no webpack dependency, fully compatible with Turbopack
 - If offline caching is needed later, Serwist (`@serwist/next`) can be added without changing existing code
+
+---
+
+### TanStack Table for data tables
+*Added: 2026-03-02*
+
+**Context**: Manager dashboard has three data-heavy pages (maintenance, residents, financials).
+
+**Decision**: Use `@tanstack/react-table` with shadcn Table components for a reusable DataTable.
+
+**Why**:
+- Headless: renders into shadcn `Table` components, not its own DOM
+- Built-in pagination, sorting, filtering — no custom logic needed
+- Type-safe column definitions with TypeScript generics
+- Composable toolbar: search input + select filters sit above the table
 
 ---
 
 ### TypeScript everywhere
 *Added: 2026-02-27*
 
-**Context**: Project has multiple interfaces sharing types and a mock API layer.
+**Context**: Project has multiple interfaces sharing types and a mock data layer.
 
 **Decision**: TypeScript for all code. Shared type definitions live in `src/types/`.
 
 **Why**:
 - Manager and Resident interfaces share the same data models (residents, properties, requests)
-- Type safety catches mismatches between API responses and UI expectations
+- Type safety catches mismatches between data and UI expectations
 - Shared `types/` folder is the single source of truth for data shapes
+
+---
+
+### Tailwind CSS v4 with oklch colors
+*Added: 2026-03-02*
+
+**Context**: shadcn/ui uses CSS variables for theming, Tailwind v4 uses CSS-first configuration.
+
+**Decision**: Use oklch color space for all theme variables, with teal (#0f766e) as the primary brand color.
+
+**Why**:
+- oklch provides perceptually uniform colors — semantic variants (success, warning, info) look visually consistent
+- CSS-first config in Tailwind v4 means theme values live in `globals.css`, not a JS config file
+- Custom semantic color variables (`--success`, `--warning`, `--info`) extend shadcn's default palette
+- `@theme inline` block maps CSS variables to Tailwind utility classes automatically

@@ -24,12 +24,39 @@ Things that aren't obvious and would trip up a new developer.
 
 ---
 
-### antd and antd-mobile are different packages
-*Added: 2026-02-27*
+### shadcn components live in your codebase
+*Added: 2026-03-02*
 
-**Context**: Both come from the Ant Design family but they're separate npm packages with different APIs.
+**Context**: shadcn/ui components are copied into `src/components/ui/` — they're not imported from `node_modules`.
 
-**Gotcha**: Don't import from `antd` in Resident Portal components (or `antd-mobile` in Manager components). They have different component names, props, and styling approaches. The folder structure (`components/manager/` vs `components/resident/`) exists specifically to prevent this.
+**Gotcha**: Don't run `npx shadcn add` for a component you've already customized — it will overwrite your changes. Check `src/components/ui/` first. If you need to update a component, manually apply the changes.
+
+---
+
+### Tailwind v4 uses @theme, not tailwind.config
+*Added: 2026-03-02*
+
+**Context**: Tailwind CSS v4 uses CSS-first configuration.
+
+**Gotcha**: There is no `tailwind.config.ts`. All theme customization happens in `src/app/globals.css` using `@theme inline {}`. If you add a new CSS variable (e.g., `--my-color`), you also need to add `--color-my-color: var(--my-color);` inside `@theme inline {}` to make it available as a Tailwind utility class.
+
+---
+
+### Route groups don't add URL segments
+*Added: 2026-03-02*
+
+**Context**: `(manager)` and `(resident)` are Next.js route groups — the parentheses mean they provide layouts without affecting the URL.
+
+**Gotcha**: The URL is `/manager/maintenance`, not `/(manager)/manager/maintenance`. The route group just lets us give manager and resident pages different layouts (`SidebarProvider` vs mobile wrapper).
+
+---
+
+### SidebarProvider requires client components
+*Added: 2026-03-02*
+
+**Context**: shadcn's Sidebar uses React context (`SidebarProvider`) for open/collapsed state.
+
+**Gotcha**: Any component that reads sidebar state (via `useSidebar()`) must be a client component (`'use client'`). The manager layout wraps everything in `SidebarProvider`, but individual page components that don't use sidebar state can remain server components.
 
 ---
 
