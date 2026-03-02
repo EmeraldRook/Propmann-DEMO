@@ -38,17 +38,26 @@ Why we chose specific libraries and tools, and how they fit together.
 
 ---
 
-### Built-in PWA via manifest.ts (not next-pwa or Serwist)
-*Added: 2026-02-27*
+### Manual PWA with hand-written service worker (not next-pwa or Serwist)
+*Added: 2026-02-27 · Updated: 2026-03-02*
 
-**Context**: The Resident Portal needs to be installable and feel like a native app.
+**Context**: The Resident Portal needs to be installable, feel like a native app, and work offline.
 
-**Decision**: Use Next.js built-in support: `app/manifest.ts` with `display: "standalone"`. No service worker library.
+**Decision**: Use Next.js built-in `app/manifest.ts` for the web app manifest, plus a hand-written `public/sw.js` service worker. No third-party SW library.
 
 **Why**:
-- For the demo, we only need installability and standalone display (no browser chrome)
-- Zero config, no webpack dependency, fully compatible with Turbopack
-- If offline caching is needed later, Serwist (`@serwist/next`) can be added without changing existing code
+- `manifest.ts` provides typed manifest generation — no JSON file to maintain
+- Manual service worker keeps full control over caching strategies without build-tool coupling
+- Network-first for navigations (with `/offline` fallback), cache-first for static assets — simple and predictable
+- Zero runtime dependencies, fully compatible with Turbopack
+- `sw.js` served with `Cache-Control: no-cache` via `next.config.ts` headers so browsers always check for updates
+
+**Key files**:
+- `src/app/manifest.ts` — web app manifest
+- `public/sw.js` — service worker (versioned cache `propmann-v1`)
+- `src/components/sw-register.tsx` — registers SW in `useEffect`
+- `src/app/offline/page.tsx` — offline fallback page
+- `public/icon-192.png`, `public/icon-512.png`, `public/apple-touch-icon.png` — PWA icons
 
 ---
 

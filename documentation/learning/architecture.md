@@ -20,7 +20,7 @@ src/app/
 ├── (resident)/
 │   ├── layout.tsx      # Max-width 430px wrapper + BottomTabBar
 │   └── resident/       # All resident pages
-├── layout.tsx          # Root: Inter font, TooltipProvider
+├── layout.tsx          # Root: Inter font, TooltipProvider, SW register
 └── page.tsx            # Landing page (links to both)
 ```
 Each gets its own layout, navigation pattern, and styling approach.

@@ -60,6 +60,15 @@ Things that aren't obvious and would trip up a new developer.
 
 ---
 
+### Service worker is manual — bump the cache version on changes
+*Added: 2026-03-02*
+
+**Context**: `public/sw.js` uses a versioned cache name (`propmann-v1`).
+
+**Gotcha**: When you change which URLs are precached or modify caching logic, bump the version (e.g., `propmann-v2`). The activate handler automatically deletes old caches, but only if the name changes. Also, `next.config.ts` serves `sw.js` with `no-cache` headers so browsers always fetch the latest version — don't remove that.
+
+---
+
 ### Documentation-first workflow
 *Added: 2026-02-27*
 
