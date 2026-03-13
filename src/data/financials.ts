@@ -1,6 +1,41 @@
 import type { Payment, MonthlySummary } from '@/types';
 
+// Generate a pending payment for the current month so the demo always has
+// an actionable "Pay Now" regardless of when it's opened.
+function currentMonthDue(): string {
+  const now = new Date();
+  const y = now.getFullYear();
+  const m = String(now.getMonth() + 1).padStart(2, '0');
+  return `${y}-${m}-01`;
+}
+
+const currentMonthMaintenance: Payment = {
+  id: 'P-CURRENT-MF',
+  propertyId: 'sri-angkasa',
+  residentId: 'R001',
+  residentName: 'Ahmad Razali bin Mohd Yusof',
+  unit: '12B',
+  amount: 2150,
+  type: 'maintenance_fee',
+  status: 'pending',
+  dueDate: currentMonthDue(),
+};
+
+const currentMonthRental: Payment = {
+  id: 'P-CURRENT-RENT',
+  propertyId: 'sri-angkasa',
+  residentId: 'R001',
+  residentName: 'Ahmad Razali bin Mohd Yusof',
+  unit: '12B',
+  amount: 3700,
+  type: 'rental',
+  status: 'pending',
+  dueDate: currentMonthDue(),
+};
+
 export const payments: Payment[] = [
+  currentMonthMaintenance,
+  currentMonthRental,
   // ── Sri Angkasa Residences ──
   { id: 'P001', propertyId: 'sri-angkasa', residentId: 'R001', residentName: 'Ahmad Razali bin Mohd Yusof', unit: '12B', amount: 2150, type: 'maintenance_fee', status: 'paid', dueDate: '2026-03-01', paidDate: '2026-02-27', method: 'online_banking', reference: 'FPX-20260227-001' },
   { id: 'P002', propertyId: 'sri-angkasa', residentId: 'R002', residentName: 'Siti Nurhaliza binti Abdullah', unit: '08A', amount: 2000, type: 'maintenance_fee', status: 'paid', dueDate: '2026-03-01', paidDate: '2026-02-25', method: 'fpx', reference: 'FPX-20260225-042' },

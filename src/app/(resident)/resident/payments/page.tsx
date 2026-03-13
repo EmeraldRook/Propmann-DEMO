@@ -1,8 +1,11 @@
 'use client';
 
+import { Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { CheckCircle2 } from 'lucide-react';
 import { ResidentHeader } from '@/components/resident/resident-header';
 import { PayNowDialog } from '@/components/resident/pay-now-dialog';
 import { residentProfile } from '@/data/profile';
@@ -15,6 +18,27 @@ const statusVariant: Record<string, 'default' | 'secondary' | 'destructive' | 'o
   overdue: 'destructive',
 };
 
+function PaymentSuccessBanner() {
+  const searchParams = useSearchParams();
+  const paymentStatus = searchParams.get('payment_status');
+
+  if (paymentStatus !== 'success') return null;
+
+  return (
+    <Card className="border-green-200 bg-green-50">
+      <CardContent className="pt-4 pb-4">
+        <div className="flex items-center gap-3">
+          <CheckCircle2 className="size-8 text-green-600 shrink-0" />
+          <div>
+            <p className="text-sm font-semibold text-green-800">Payment Successful</p>
+            <p className="text-xs text-green-700 mt-0.5">Your payment has been confirmed. It may take a moment to reflect in your history.</p>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function ResidentPaymentsPage() {
   const payments = getPaymentsByResident(residentProfile.id);
   const pending = payments.filter((p) => p.status === 'pending');
@@ -25,6 +49,11 @@ export default function ResidentPaymentsPage() {
       <ResidentHeader title="Payments" subtitle="Payment history" />
 
       <div className="px-4 pt-4 space-y-4 pb-4">
+        {/* Redirect return banner (FPX / GrabPay) */}
+        <Suspense fallback={null}>
+          <PaymentSuccessBanner />
+        </Suspense>
+
         {/* Balance card */}
         <Card className="bg-gradient-to-br from-teal-700 to-teal-500 text-white border-0 shadow-lg">
           <CardContent className="pt-5 pb-4 text-center">

@@ -27,29 +27,30 @@ export default function ResidentHomePage() {
   const announcements = getAnnouncementsByProperty(profile.propertyId);
 
   const activeRequests = requests.filter((r) => r.status === 'new' || r.status === 'in_progress');
-  const nextPayment = payments.find((p) => p.status === 'pending');
+  const pendingPayments = payments.filter((p) => p.status === 'pending');
+  const totalDue = pendingPayments.reduce((s, p) => s + p.amount, 0);
 
   return (
     <>
       <ResidentHeader title={profile.name.split(' ')[0]} subtitle={`${profile.propertyName} · Unit ${profile.unit}`} />
 
       <div className="px-4 pt-4 space-y-4 pb-4">
-        {/* Rent card */}
+        {/* Outstanding balance card */}
         <Card className="bg-gradient-to-br from-teal-700 to-teal-500 text-white border-0 shadow-lg">
           <CardContent className="pt-5 pb-4">
-            <p className="text-teal-100 text-xs font-medium">Monthly Rent</p>
-            <p className="text-2xl font-bold mt-0.5">{formatRM(profile.monthlyRent)}</p>
-            {nextPayment && (
+            <p className="text-teal-100 text-xs font-medium">Outstanding Balance</p>
+            <p className="text-2xl font-bold mt-0.5">{formatRM(totalDue)}</p>
+            {totalDue > 0 && (
               <div className="flex items-center justify-between mt-3">
-                <span className="text-teal-100 text-xs">Due: {nextPayment.dueDate}</span>
-                <PayNowDialog amount={nextPayment.amount}>
+                <span className="text-teal-100 text-xs">{pendingPayments.length} pending payment{pendingPayments.length > 1 ? 's' : ''}</span>
+                <PayNowDialog amount={totalDue}>
                   <Button size="sm" variant="secondary" className="h-7 text-xs font-semibold bg-white text-teal-700 hover:bg-teal-50">
                     Pay Now
                   </Button>
                 </PayNowDialog>
               </div>
             )}
-            {profile.outstandingBalance === 0 && !nextPayment && (
+            {totalDue === 0 && (
               <p className="text-teal-100 text-xs mt-2">All paid up!</p>
             )}
           </CardContent>

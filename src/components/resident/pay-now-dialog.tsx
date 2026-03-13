@@ -6,10 +6,10 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogFooter,
 } from '@/components/ui/dialog';
 import {
   Select,
@@ -19,6 +19,8 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
+import { StripeProvider, isStripeEnabled } from '@/components/stripe-provider';
+import { StripePaymentForm } from '@/components/resident/stripe-payment-form';
 import { useDemoForm } from '@/hooks/use-demo-form';
 import { formatRM } from '@/lib/format';
 
@@ -28,6 +30,38 @@ interface PayNowDialogProps {
 }
 
 export function PayNowDialog({ amount, children }: PayNowDialogProps) {
+  if (isStripeEnabled()) {
+    return <StripePayNowDialog amount={amount}>{children}</StripePayNowDialog>;
+  }
+  return <SimulatedPayNowDialog amount={amount}>{children}</SimulatedPayNowDialog>;
+}
+
+// ── Stripe-powered dialog ──────────────────────────────────────────
+
+function StripePayNowDialog({ amount, children }: PayNowDialogProps) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>{children}</DialogTrigger>
+      <DialogContent className="sm:max-w-md">
+        <DialogHeader>
+          <DialogTitle>Confirm Payment</DialogTitle>
+          <DialogDescription>
+            You are about to pay <span className="font-semibold text-foreground">{formatRM(amount)}</span>.
+          </DialogDescription>
+        </DialogHeader>
+        <StripeProvider amount={amount}>
+          <StripePaymentForm amount={amount} onSuccess={() => {}} />
+        </StripeProvider>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+// ── Simulated fallback (no Stripe keys) ────────────────────────────
+
+function SimulatedPayNowDialog({ amount, children }: PayNowDialogProps) {
   const { open, setOpen, pending, submit } = useDemoForm({
     successMessage: `Payment of ${formatRM(amount)} processed`,
   });
@@ -59,7 +93,7 @@ export function PayNowDialog({ amount, children }: PayNowDialogProps) {
               <SelectContent>
                 <SelectItem value="fpx">FPX Online Banking</SelectItem>
                 <SelectItem value="credit_card">Credit / Debit Card</SelectItem>
-                <SelectItem value="ewallet">e-Wallet (Touch &apos;n Go / GrabPay)</SelectItem>
+                <SelectItem value="ewallet">e-Wallet (GrabPay)</SelectItem>
               </SelectContent>
             </Select>
           </div>

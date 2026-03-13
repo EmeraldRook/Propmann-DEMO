@@ -12,7 +12,7 @@ export const residentProfile: ResidentProfile = {
   leaseStart: '2024-03-01',
   leaseEnd: '2026-02-28',
   monthlyRent: 1800,
-  outstandingBalance: 0,
+  outstandingBalance: 5850,
   documents: [
     { name: 'Tenancy Agreement', type: 'pdf', url: '#' },
     { name: 'House Rules', type: 'pdf', url: '#' },

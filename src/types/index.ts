@@ -68,6 +68,9 @@ export interface Payment {
   paidDate?: string;
   method?: 'online_banking' | 'fpx' | 'cash' | 'cheque' | 'auto_debit';
   reference?: string;
+  gatewayProvider?: 'stripe';
+  gatewayTransactionId?: string;
+  gatewayStatus?: 'succeeded' | 'processing' | 'failed';
 }
 
 export interface MonthlySummary {
