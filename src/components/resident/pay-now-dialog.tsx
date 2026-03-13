@@ -44,16 +44,18 @@ function StripePayNowDialog({ amount, children }: PayNowDialogProps) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md max-h-[90vh] flex flex-col">
         <DialogHeader>
           <DialogTitle>Confirm Payment</DialogTitle>
           <DialogDescription>
             You are about to pay <span className="font-semibold text-foreground">{formatRM(amount)}</span>.
           </DialogDescription>
         </DialogHeader>
-        <StripeProvider amount={amount}>
-          <StripePaymentForm amount={amount} onSuccess={() => {}} />
-        </StripeProvider>
+        <div className="overflow-y-auto flex-1 -mx-6 px-6">
+          <StripeProvider amount={amount}>
+            <StripePaymentForm amount={amount} onSuccess={() => {}} />
+          </StripeProvider>
+        </div>
       </DialogContent>
     </Dialog>
   );
